@@ -1,0 +1,157 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #1a0a2e;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: 'Press Start 2P', monospace;
+    overflow: hidden;
+  }
+  #score-display {
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px #000;
+    letter-spacing: 2px;
+  }
+  #game-container {
+    position: relative;
+    width: 1040px;
+    height: 325px;
+    background: linear-gradient(to bottom, #87CEEB 0%, #b0e0ff 70%, #5cb85c 70%, #4a9a40 100%);
+    border: 4px solid #000;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  /* CLOUDS */
+  .cloud {
+    position: absolute;
+    background-image: url('../images/clouds.png');
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+  }
+
+  /* nuvem pequena esquerda */
+  .cloud1 {
+    width: 499px;
+    height: 250px;
+    top: 16px;
+    animation: moveClouds1 14s linear infinite;
+    background-size: 500px auto; /* zoom maior */
+  }
+  .cloud1 img { left: -39px; top: -23px; }
+
+  /* nuvem larga do meio */
+  .cloud2 {
+    width: 410px;
+    height: 350px;
+    top: 7px;
+    animation: moveClouds2 20s linear infinite;
+    background-size: 400px auto; /* zoom maior */
+  }
+  .cloud2 img { left: -283px; top: -10px; }
+
+  /* nuvem menor */
+  .cloud3 {
+    width: 390px;
+    height: 230px;
+    top: 26px;
+    animation: moveClouds3 17s linear infinite;
+    background-size: 300px auto; /* zoom maior */
+  }
+
+  .cloud3 img { left: -254px; top: -248px; }
+
+  @keyframes moveClouds1 {
+    0%   { left: 1060px; }
+    100% { left: -260px; }
+  }
+  @keyframes moveClouds2 {
+    0%   { left: 1370px; }
+    100% { left: -360px; }
+  }
+  @keyframes moveClouds3 {
+    0%   { left: 650px; }
+    100% { left: -247px; }
+  }
+
+    /* MARIO */
+  #mario {
+    position: absolute;
+    bottom: 46px;
+    left: 169px;
+    width: 94px;
+    height: 104px;
+    background-image: url('../images/arruda.gif'); /* 👈 coloque mario.gif na pasta images/ */
+    background-size: contain;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    z-index: 10;
+    transition: none;
+  }
+  #mario.jumping {
+    animation: jump 0.5s ease-out;
+  }
+  @keyframes jump {
+    0%   { bottom: 35px; }
+    40%  { bottom: 155px; }
+    60%  { bottom: 155px; }
+    100% { bottom: 35px; }
+  }
+
+  /* PIPE */
+  #pipe {
+    position: absolute;
+    bottom: 46px;
+    right: -80px;
+    width: 55px;
+    height: 75px;
+    background-image: url('../images/pipe.png'); /* 👈 coloque pipe.png na pasta images/ */
+    background-size: contain;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    z-index: 10;
+  }
+
+  /* GROUND LINE */
+  #ground {
+    position: absolute;
+    bottom: 46px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: #2d7a1f;
+  }
+
+  /* GAME OVER */
+  #game-over-screen {
+    display: none;
+    position: absolute;
+    bottom: 46px;
+    left: 169px;
+    width: 94px;
+    height: 104px;
+    z-index: 20;
+  }
+  #game-over-screen.show {
+    display: block;
+  }
+  #game-over-img {
+    width: 94px;
+    height: 104px;
+    object-fit: contain;
+    image-rendering: pixelated;
+    animation: bounceIn 0.3s ease;
+  }
+  @keyframes bounceIn {
+    0%   { transform: scale(0.5); opacity: 0; }
+    70%  { transform: scale(1.1); }
+    100% { transform: scale(1);   opacity: 1; }
+  }
+  #restart-btn {
+    display: none;
+  }
+  #hint { display: none; }

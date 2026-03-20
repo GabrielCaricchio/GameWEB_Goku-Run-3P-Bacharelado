@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Mario Runner</title>
+<link rel="stylesheet" href="static/css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div id="score-display">SCORE: <span id="score">0</span> &nbsp;&nbsp; HI: <span id="hiscore">0</span></div>
+
+<div id="game-container" tabindex="0">
+  <div class="cloud cloud1"></div>
+  <div class="cloud cloud2"></div>
+  <div class="cloud cloud3"></div>
+
+
+  <div id="ground"></div>
+  <div id="mario"></div>
+  <div id="pipe"></div>
+
+  <div id="game-over-screen">
+    <img id="game-over-img" src="static/images/game-over.gif" alt="Game Over">
+    <button id="restart-btn">▶ JOGAR NOVAMENTE</button>
+    <div id="hint">ESPAÇO / CLIQUE para pular</div>
+  </div>
+</div>
+
+<div style="color:rgba(255,255,255,0.5); font-size:9px; margin-top:10px; font-family:'Press Start 2P',monospace;">
+  ESPAÇO / CLIQUE / SETA CIMA para pular
+</div>
+
+<script src="static/js/game.js"></script>
+</body>
+</html>
